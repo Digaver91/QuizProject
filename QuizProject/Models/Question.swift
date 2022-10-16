@@ -7,10 +7,7 @@
 
 import Foundation
 
-struct Quiz {
+struct Question {
     var question: String
-    var firstAnswer: String
-    var secondAnswer: String
-    var thirdAnswer: String
-    var correctAnswer: String
+   
 }

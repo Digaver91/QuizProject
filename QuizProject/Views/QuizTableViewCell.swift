@@ -9,6 +9,17 @@ import UIKit
 
 class QuizTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var firstAnswerButton: UIButton!
+    
+    @IBOutlet weak var secondAnswerButton: UIButton!
+    
+    @IBOutlet weak var thirdAnswerButton: UIButton!
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +31,9 @@ class QuizTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func nextQuestionButton(_ sender: Any) {
+        
+        thirdAnswerButton.backgroundColor = .green
+        nextButton.isEnabled = false
+    }
 }

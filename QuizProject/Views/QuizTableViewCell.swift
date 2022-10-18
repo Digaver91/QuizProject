@@ -8,8 +8,11 @@
 import UIKit
 
 class QuizTableViewCell: UITableViewCell {
+    
+//    var questions = [Question]()
+//    var answers = [Answer]()
+    var secAnsw: SecondaryAnswer?
 
-    @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var firstAnswerButton: UIButton!
     
@@ -30,10 +33,40 @@ class QuizTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    @IBAction func nextQuestionButton(_ sender: Any) {
+    
+    
+    @IBAction func firstButtonPressed(_ sender: Any) {
+        firstAnswerButton.backgroundColor = .orange
         
-        thirdAnswerButton.backgroundColor = .green
-        nextButton.isEnabled = false
+        if firstAnswerButton.backgroundColor == .orange {
+            secAnsw?.isChecked = true
+            
+            secondAnswerButton.isEnabled = false
+            thirdAnswerButton.isEnabled = false
+        }
     }
+    
+    @IBAction func secondButtonPressed(_ sender: Any) {
+        secondAnswerButton.backgroundColor = .orange
+        
+        if secondAnswerButton.backgroundColor == .orange {
+            secAnsw?.isChecked = true
+            firstAnswerButton.isEnabled = false
+            thirdAnswerButton.isEnabled = false
+        }
+    }
+    
+    
+    @IBAction func thirdButtonPressed(_ sender: Any) {
+        thirdAnswerButton.backgroundColor = .orange
+        
+        if thirdAnswerButton.backgroundColor == .orange {
+            secAnsw?.isChecked = true
+            secAnsw?.isRightVariant = true
+            Result.result += 1
+            firstAnswerButton.isEnabled = false
+            secondAnswerButton.isEnabled = false
+        }
+    }
+ 
 }

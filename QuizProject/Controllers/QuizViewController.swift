@@ -11,9 +11,10 @@ class QuizViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var players = [Player]()
     var questions = [Question]()
     var answers = [Answer]()
-    
+    var secAnsw = [SecondaryAnswer]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,11 @@ class QuizViewController: UIViewController {
             imageView.alpha = 0.8
         
     }
-   
+    
+    @IBAction func checkResultButton(_ sender: Any) {
+       
+        dismiss(animated: true)
+    }
 }
 extension QuizViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -45,17 +50,13 @@ extension QuizViewController: UITableViewDataSource {
         }
         cell.questionLabel.text = questions[indexPath.row].question
         
-        cell.firstAnswerButton.setTitle("\(answers[indexPath.row].firstAnswer)", for: .normal)
-        cell.secondAnswerButton.setTitle("\(answers[indexPath.row].secondAnswer)", for: .normal)
-        cell.thirdAnswerButton.setTitle("\(answers[indexPath.row].correctAnswer)", for: .normal)
-  
+        cell.firstAnswerButton.setTitle("\(answers[indexPath.row].firstAnswer.name)", for: .normal)
+        cell.secondAnswerButton.setTitle("\(answers[indexPath.row].secondAnswer.name)", for: .normal)
+        cell.thirdAnswerButton.setTitle("\(answers[indexPath.row].correctAnswer.name)", for: .normal)
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+   
 }
 extension UITableView {
     @IBInspectable var backgroundImage: UIImage? {

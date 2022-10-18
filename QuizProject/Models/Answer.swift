@@ -8,7 +8,9 @@
 import Foundation
 
 struct Answer {
-    var firstAnswer: String
-    var secondAnswer: String
-    var correctAnswer: String
+    var firstAnswer: SecondaryAnswer
+    var secondAnswer: SecondaryAnswer
+    var correctAnswer: SecondaryAnswer
 }
+
+

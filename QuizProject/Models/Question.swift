@@ -9,5 +9,4 @@ import Foundation
 
 struct Question {
     var question: String
-   
 }

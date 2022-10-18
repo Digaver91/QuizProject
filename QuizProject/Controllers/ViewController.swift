@@ -42,15 +42,15 @@ class ViewController: UIViewController {
     }
     
     func addAnswers() {
-        answers.append(Answer(firstAnswer: "Earth", secondAnswer: "Mars", correctAnswer: "Jupiter"))
-        answers.append(Answer(firstAnswer: "Neptune", secondAnswer: "Pluto", correctAnswer: "Mercury"))
-        answers.append(Answer(firstAnswer: "7", secondAnswer: "10", correctAnswer: "8"))
-        answers.append(Answer(firstAnswer: "Jupiter", secondAnswer: "Mercury", correctAnswer: "Saturn"))
-        answers.append(Answer(firstAnswer: "Venus", secondAnswer: "Earth", correctAnswer: "Pluto"))
+        answers.append(Answer(firstAnswer: SecondaryAnswer(name: "Earth", isRightVariant: false, isChecked: false), secondAnswer: SecondaryAnswer(name: "Mars", isRightVariant: false, isChecked: false), correctAnswer: SecondaryAnswer(name: "Jupiter", isRightVariant: true, isChecked: false)))
+        answers.append(Answer(firstAnswer: SecondaryAnswer(name: "Neptune", isRightVariant: false, isChecked: false), secondAnswer: SecondaryAnswer(name: "Pluto", isRightVariant: false, isChecked: false), correctAnswer: SecondaryAnswer(name: "Mercury", isRightVariant: true, isChecked: false)))
+        answers.append(Answer(firstAnswer: SecondaryAnswer(name: "7", isRightVariant: false, isChecked: false), secondAnswer: SecondaryAnswer(name: "10", isRightVariant: false, isChecked: false), correctAnswer: SecondaryAnswer(name: "8", isRightVariant: true, isChecked: false)))
+        answers.append(Answer(firstAnswer: SecondaryAnswer(name: "Jupiter", isRightVariant: false, isChecked: false), secondAnswer: SecondaryAnswer(name: "Mercury", isRightVariant: false, isChecked: false), correctAnswer: SecondaryAnswer(name: "Saturn", isRightVariant: true, isChecked: false)))
+        answers.append(Answer(firstAnswer: SecondaryAnswer(name: "Venus", isRightVariant: false, isChecked: false), secondAnswer: SecondaryAnswer(name: "Earth", isRightVariant: false, isChecked: false), correctAnswer: SecondaryAnswer(name: "Pluto", isRightVariant: true, isChecked: false)))
     }
 
     @IBAction func submitButton(_ sender: Any) {
-        players.append(Player(name: nameTextField.text ?? ""))
+        players.append(Player(name: nameTextField.text ?? "", score: Result.result))
         tableView.reloadData()
     }
     
@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         vc.answers = answers
         show(vc, sender: nil)
     }
+    
 }
 extension ViewController: UITableViewDelegate {
     

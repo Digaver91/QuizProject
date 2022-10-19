@@ -7,14 +7,21 @@
 
 import UIKit
 
+protocol QuizViewControllerDelegate: AnyObject {
+    func submit(score: Int)
+}
+
 class QuizViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var players = [Player]()
+    var player: Player?
     var questions = [Question]()
-    var answers = [Answer]()
-    var secAnsw = [SecondaryAnswer]()
+ 
+    
+    weak var delegate: QuizViewControllerDelegate?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +37,13 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func checkResultButton(_ sender: Any) {
-       
+       var score = 0
+        questions.forEach { question in
+            if let isCorrectChoise = question.isCorrectChoise, isCorrectChoise {
+                score += 1
+            }
+        }
+        delegate?.submit(score: score)
         dismiss(animated: true)
     }
 }
@@ -50,10 +63,16 @@ extension QuizViewController: UITableViewDataSource {
         }
         cell.questionLabel.text = questions[indexPath.row].question
         
-        cell.firstAnswerButton.setTitle("\(answers[indexPath.row].firstAnswer.name)", for: .normal)
-        cell.secondAnswerButton.setTitle("\(answers[indexPath.row].secondAnswer.name)", for: .normal)
-        cell.thirdAnswerButton.setTitle("\(answers[indexPath.row].correctAnswer.name)", for: .normal)
-        
+        cell.firstAnswerButton.setTitle("\(questions[indexPath.row].answers[0].name)", for: .normal)
+        cell.secondAnswerButton.setTitle("\(questions[indexPath.row].answers[1].name)", for: .normal)
+        cell.thirdAnswerButton.setTitle("\(questions[indexPath.row].answers[2].name)", for: .normal)
+        cell.question = questions[indexPath.row]
+        cell.didButtonTapped = { question in
+            self.questions[indexPath.row].isCorrectChoise = question?.isCorrectChoise
+            self.questions[indexPath.row].answers = question?.answers ?? self.questions[indexPath.row].answers
+            
+            
+        }
         return cell
     }
    

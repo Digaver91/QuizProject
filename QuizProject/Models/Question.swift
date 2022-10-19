@@ -9,4 +9,6 @@ import Foundation
 
 struct Question {
     var question: String
+    var answers: [Answer]
+    var isCorrectChoise: Bool? = false
 }

@@ -9,9 +9,11 @@ import UIKit
 
 class QuizTableViewCell: UITableViewCell {
     
-//    var questions = [Question]()
+    var question: Question?
 //    var answers = [Answer]()
-    var secAnsw: SecondaryAnswer?
+    //var secAnsw: SecondaryAnswer?
+    
+    var didButtonTapped: ((Question?) -> Void)?
 
     
     @IBOutlet weak var firstAnswerButton: UIButton!
@@ -39,10 +41,13 @@ class QuizTableViewCell: UITableViewCell {
         firstAnswerButton.backgroundColor = .orange
         
         if firstAnswerButton.backgroundColor == .orange {
-            secAnsw?.isChecked = true
+            question?.answers[0].isChecked = true
             
             secondAnswerButton.isEnabled = false
             thirdAnswerButton.isEnabled = false
+            
+            question?.isCorrectChoise = question?.answers[0].isRightVariant ?? false
+            didButtonTapped?(question)
         }
     }
     
@@ -50,9 +55,12 @@ class QuizTableViewCell: UITableViewCell {
         secondAnswerButton.backgroundColor = .orange
         
         if secondAnswerButton.backgroundColor == .orange {
-            secAnsw?.isChecked = true
+            question?.answers[1].isChecked = true
             firstAnswerButton.isEnabled = false
             thirdAnswerButton.isEnabled = false
+            
+            question?.isCorrectChoise = question!.answers[1].isRightVariant
+            didButtonTapped?(question)
         }
     }
     
@@ -61,11 +69,12 @@ class QuizTableViewCell: UITableViewCell {
         thirdAnswerButton.backgroundColor = .orange
         
         if thirdAnswerButton.backgroundColor == .orange {
-            secAnsw?.isChecked = true
-            secAnsw?.isRightVariant = true
-            Result.result += 1
+            question?.answers[2].isChecked = true
             firstAnswerButton.isEnabled = false
             secondAnswerButton.isEnabled = false
+            
+            question?.isCorrectChoise = question?.answers[2].isRightVariant ?? false
+            didButtonTapped?(question)
         }
     }
  

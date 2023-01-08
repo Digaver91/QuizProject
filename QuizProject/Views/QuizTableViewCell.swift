@@ -10,8 +10,6 @@ import UIKit
 class QuizTableViewCell: UITableViewCell {
     
     var question: Question?
-//    var answers = [Answer]()
-    //var secAnsw: SecondaryAnswer?
     
     var didButtonTapped: ((Question?) -> Void)?
 

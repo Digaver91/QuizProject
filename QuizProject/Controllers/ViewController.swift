@@ -37,9 +37,9 @@ class ViewController: UIViewController {
     func addQuestion() {
         questions.append(Question(question: "What is the biggest planet in our system?", answers: [
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
-        Answer(name: "Earth", isRightVariant: true, isChecked: false),
-        Answer(name: "Earth", isRightVariant: true, isChecked: false),
-        Answer(name: "Earth", isRightVariant: true, isChecked: false)
+        Answer(name: "Earth", isRightVariant: false, isChecked: false),
+        Answer(name: "Earth", isRightVariant: false, isChecked: false),
+        Answer(name: "Earth", isRightVariant: false, isChecked: false)
        
         ]))
         questions.append(Question(question: "What is the biggest planet in our system2?", answers: [

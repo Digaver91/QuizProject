@@ -8,7 +8,7 @@
 import Foundation
 
 struct Answer {
-var name: String
-var isRightVariant: Bool
-var isChecked: Bool
+    var name: String
+    var isRightVariant: Bool
+    var isChecked: Bool
 }

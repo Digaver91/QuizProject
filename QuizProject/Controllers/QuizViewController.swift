@@ -62,11 +62,8 @@ extension QuizViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.questionLabel.text = questions[indexPath.row].question
-        
-        cell.firstAnswerButton.setTitle("\(questions[indexPath.row].answers[0].name)", for: .normal)
-        cell.secondAnswerButton.setTitle("\(questions[indexPath.row].answers[1].name)", for: .normal)
-        cell.thirdAnswerButton.setTitle("\(questions[indexPath.row].answers[2].name)", for: .normal)
         cell.question = questions[indexPath.row]
+        
         cell.didButtonTapped = { question in
             self.questions[indexPath.row].isCorrectChoise = question?.isCorrectChoise
             self.questions[indexPath.row].answers = question?.answers ?? self.questions[indexPath.row].answers

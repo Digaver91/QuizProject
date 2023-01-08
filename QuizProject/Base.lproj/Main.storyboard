@@ -181,10 +181,10 @@
                                                         <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="17"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="firstButtonPressed:" destination="w6q-0h-d6H" eventType="touchUpInside" id="1IC-1T-biC"/>
+                                                        <action selector="buttonPressed:" destination="w6q-0h-d6H" eventType="touchDown" id="mdj-HK-5HU"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHb-qO-DjL">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHb-qO-DjL">
                                                     <rect key="frame" x="20" y="107" width="350" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="1bd-01-qKh"/>
@@ -195,10 +195,10 @@
                                                         <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="17"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="secondButtonPressed:" destination="w6q-0h-d6H" eventType="touchUpInside" id="PQ9-pb-hWi"/>
+                                                        <action selector="buttonPressed:" destination="w6q-0h-d6H" eventType="touchDown" id="MUp-Ru-iLh"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6G-ux-1X2">
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6G-ux-1X2">
                                                     <rect key="frame" x="20" y="155" width="350" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="oFo-0P-YCQ"/>
@@ -209,7 +209,7 @@
                                                         <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="17"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="thirdButtonPressed:" destination="w6q-0h-d6H" eventType="touchUpInside" id="7JA-Cb-dwt"/>
+                                                        <action selector="buttonPressed:" destination="w6q-0h-d6H" eventType="touchDown" id="AHx-zC-8DI"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -231,10 +231,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="firstAnswerButton" destination="kJe-Zp-BHB" id="sPO-0b-8wY"/>
                                             <outlet property="questionLabel" destination="rgp-8N-eUg" id="fiR-zJ-sga"/>
-                                            <outlet property="secondAnswerButton" destination="NHb-qO-DjL" id="NbA-cU-H2C"/>
-                                            <outlet property="thirdAnswerButton" destination="R6G-ux-1X2" id="7Qm-b3-M17"/>
+                                            <outletCollection property="buttons" destination="kJe-Zp-BHB" collectionClass="NSMutableArray" id="ueE-GE-Yml"/>
+                                            <outletCollection property="buttons" destination="NHb-qO-DjL" collectionClass="NSMutableArray" id="YC9-K0-cub"/>
+                                            <outletCollection property="buttons" destination="R6G-ux-1X2" collectionClass="NSMutableArray" id="QWm-4I-89G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

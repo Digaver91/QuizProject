@@ -9,17 +9,20 @@ import UIKit
 
 class QuizTableViewCell: UITableViewCell {
     
-    var question: Question?
+    var question: Question? {
+        didSet {
+            for button in buttons {
+                button.setTitle("\(question?.answers[button.tag].name ?? "")", for: .normal)
+            }
+        }
+    }
+
     
     var didButtonTapped: ((Question?) -> Void)?
 
     
-    @IBOutlet weak var firstAnswerButton: UIButton!
-    
-    @IBOutlet weak var secondAnswerButton: UIButton!
-    
-    @IBOutlet weak var thirdAnswerButton: UIButton!
-    
+    @IBOutlet var buttons: [UIButton]!
+   
     @IBOutlet weak var questionLabel: UILabel!
     
     
@@ -33,47 +36,15 @@ class QuizTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
-    @IBAction func firstButtonPressed(_ sender: Any) {
-        firstAnswerButton.backgroundColor = .orange
-        
-        if firstAnswerButton.backgroundColor == .orange {
-            question?.answers[0].isChecked = true
-            
-            secondAnswerButton.isEnabled = false
-            thirdAnswerButton.isEnabled = false
-            
-            question?.isCorrectChoise = question?.answers[0].isRightVariant ?? false
+
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        buttons.forEach { $0.isEnabled = false }
+        sender.backgroundColor = .orange
+        question?.answers[sender.tag].isChecked = true
+
+        if let answer = question?.answers[sender.tag] {
+            question?.isCorrectChoise = answer.isRightVariant
             didButtonTapped?(question)
         }
     }
-    
-    @IBAction func secondButtonPressed(_ sender: Any) {
-        secondAnswerButton.backgroundColor = .orange
-        
-        if secondAnswerButton.backgroundColor == .orange {
-            question?.answers[1].isChecked = true
-            firstAnswerButton.isEnabled = false
-            thirdAnswerButton.isEnabled = false
-            
-            question?.isCorrectChoise = question!.answers[1].isRightVariant
-            didButtonTapped?(question)
-        }
-    }
-    
-    
-    @IBAction func thirdButtonPressed(_ sender: Any) {
-        thirdAnswerButton.backgroundColor = .orange
-        
-        if thirdAnswerButton.backgroundColor == .orange {
-            question?.answers[2].isChecked = true
-            firstAnswerButton.isEnabled = false
-            secondAnswerButton.isEnabled = false
-            
-            question?.isCorrectChoise = question?.answers[2].isRightVariant ?? false
-            didButtonTapped?(question)
-        }
-    }
- 
 }

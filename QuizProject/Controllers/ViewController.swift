@@ -37,36 +37,40 @@ class ViewController: UIViewController {
     func addQuestion() {
         questions.append(Question(question: "What is the biggest planet in our system?", answers: [
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
-        Answer(name: "Earth", isRightVariant: false, isChecked: false),
-        Answer(name: "Earth", isRightVariant: false, isChecked: false),
-        Answer(name: "Earth", isRightVariant: false, isChecked: false)
+        Answer(name: "Mars", isRightVariant: false, isChecked: false),
+        Answer(name: "Jupiter", isRightVariant: false, isChecked: false)
        
         ]))
-        questions.append(Question(question: "What is the biggest planet in our system2?", answers: [
+        questions.append(Question(question: "What is the closest planet to the sun?", answers: [
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false)
        
         ]))
-        questions.append(Question(question: "What is the biggest planet in our system3?", answers: [
+        questions.append(Question(question: "How many planets are in the Solar System?", answers: [
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false)
        
         ]))
-        questions.append(Question(question: "What is the biggest planet in our system4?", answers: [
+        questions.append(Question(question: "Which planet has the largest ring system??", answers: [
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false),
         Answer(name: "Earth", isRightVariant: true, isChecked: false)
        
         ]))
-//        questions.append(Question(question: "What is the biggest planet in our system?"))
-//        questions.append(Question(question: "What is the closest planet to the sun?"))
-//        questions.append(Question(question: "How many planets are in the Solar System?"))
-//        questions.append(Question(question: "Which planet has the largest ring system?"))
+        
+        questions.append(Question(question: "What is the smallest planet?", answers: [
+        Answer(name: "Earth", isRightVariant: true, isChecked: false),
+        Answer(name: "Earth", isRightVariant: true, isChecked: false),
+        Answer(name: "Earth", isRightVariant: true, isChecked: false),
+        Answer(name: "Earth", isRightVariant: true, isChecked: false)
+       
+        ]))
+
 //        questions.append(Question(question: "What is the smallest planet?"))
     }
     

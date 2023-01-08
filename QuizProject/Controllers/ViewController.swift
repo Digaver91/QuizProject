@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    // rename viewcontroller
+
     
     var players = [Player]()
     var questions = [Question]()
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: reload data from user defaults
+        
         
         tableView.delegate = self
         tableView.dataSource = self
